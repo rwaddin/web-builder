@@ -1,0 +1,17 @@
+{
+    "name": "rumahweb/web-builder",
+    "description": "Rumahweb website builder",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Rumahweb\\WebBuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "addinrw",
+            "email": "akhul.syaifudin@rumahweb.co.id"
+        }
+    ],
+    "require": {}
+}
