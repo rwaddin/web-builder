@@ -1,7 +1,6 @@
 <?php
 
 namespace Rumahweb\Common;
-// require_once "Util.php";
 
 use Rumahweb\Common\Util;
 

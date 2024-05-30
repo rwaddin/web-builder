@@ -1,8 +1,6 @@
 <?php
 namespace Rumahweb;
 
-// require_once "Common/Recaptcha.php";
-
 use Rumahweb\Common\Recaptcha;
 
 class App{
