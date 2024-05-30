@@ -9,19 +9,22 @@ class Recaptcha{
 
     public static string $secretKey = "";
 
-    public static function verify(string $tokenResponse){
+    public static function verify(string $tokenResponse = ""){
         try {
-           if(empty(self::$secretKey)){
-            throw new \Exception("Missing secret key");
-           }
+            if(empty(self::$secretKey)){
+                throw new \Exception("Missing secret key");
+            }
+            if(empty($tokenResponse)){
+                throw new \Exception("Missing token response");
+            }
 
-           $verifyResult = self::cURL($tokenResponse);
-           if(!$verifyResult->success){
-            $error = "error-codes";
-            throw new \Exception($verifyResult->$error[0]);
-           }
-   
-           return Util::response("Success", 200, $verifyResult);
+            $verifyResult = self::cURL($tokenResponse);
+            if(!$verifyResult->success){
+                $error = "error-codes";
+                throw new \Exception($verifyResult->$error[0]);
+            }
+
+            return Util::response("Success", 200, $verifyResult);
         } catch (\Exception $e) {
            return Util::response($e->getMessage());
         }
