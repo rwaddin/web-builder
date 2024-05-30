@@ -7,13 +7,13 @@ class Util{
 
     // }
 
-    public static function response(string $message, int $code = 400, array $data = []){
+    public static function response(string $message, int $code = 400, $data = []){
         $result = [
             "code" => $code,
             "message" => $message
         ];
         if($data){
-            $result["data"] = $data;
+            $result["data"] = (array) $data;
         }
         return $result;
     }
