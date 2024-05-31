@@ -10,7 +10,7 @@ class Clientzone {
     public static function Register(array $params){
         try {
             $regResult = self::cURL("POST", $params);
-            if($regResult->status != "success"){
+            if((isset($regResult->status) && $regResult->status != "success") || isset($regResult->code) && $regResult->code != 200){
                 throw new \Exception($regResult->message);
             }
             return Util::response("Success",200);
