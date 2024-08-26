@@ -33,9 +33,9 @@ class App{
         return Clientzone::SignIn($param);
     }
 
-    public function addTrial(string $email){
+    public function addTrial(array $params){
         Clientzone::$URL = $this->CZ_URL;
         Clientzone::$KEY = $this->CZ_TOKEN;
-        return Clientzone::AddTrial($email);
+        return Clientzone::AddTrial($params);
     }
 }
