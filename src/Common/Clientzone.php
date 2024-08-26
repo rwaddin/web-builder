@@ -19,10 +19,15 @@ class Clientzone {
         }
     }
 
-    public static function AddTrial(string $email){
+    public static function AddTrial(array $params){
         try {
+            if(!isset($params['email']) || !isset($params['b_name']) || !isset($params['b_type'])){
+                throw new \Exception("Missing params");
+            }
             $addTrialResult = self::cURL("POST",[
-                "email" => $email
+                "email" => $params['email'],
+                "business_name" => $params['b_name'],
+                "business_type" => $params['b_type'],
             ]);
             if($addTrialResult->status != "success"){
                 throw new \Exception($addTrialResult->message);
